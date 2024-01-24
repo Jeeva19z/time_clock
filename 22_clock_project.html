@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time</title>
+</head>
+<style>
+
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #0093E9;
+background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+
+
+}
+
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-size: 32px;
+        flex-direction: column;
+       
+    }
+    .wrapper-cls{
+        border: 2px solid black;
+        padding: 10px;
+    }
+    p{
+        text-shadow: 4px 4px 2px rgba(0,0,0,0.2);
+    
+    }
+   
+</style>
+<body>
+   
+    <div class="container">
+    <p>It’s really clear that the most precious resource we all have is time.</p>
+
+        <div class="wrapper-cls">            
+            <span id="hr"></span>
+            <span id="minutes"></span>
+            <span id="seconds"></span>
+            <span id="ampm">AM</span>
+            
+        </div>
+
+    </div>
+    
+
+
+    <script>
+function time(){
+        let newdate= new Date();
+
+        console.log(newdate)
+
+        let gethour= newdate.getHours();
+        let getminuts = newdate.getMinutes();
+        let getseconds = newdate.getSeconds();
+
+        raiway_time_gethour = gethour;
+
+
+      
+
+
+        gethour = gethour-12;
+
+        gethour =`0${gethour}`;
+        getminuts=`0${getminuts}`;
+        getseconds= `0${getseconds}`;
+
+
+        let slicehr=gethour.slice(-2);
+        let sliceminuts=getminuts.slice(-2);
+        let slicesconds=getseconds.slice(-2);
+
+      let change_To_ampm = ""
+
+        document.getElementById("hr").innerHTML=slicehr + " :";
+        document.getElementById("minutes").innerHTML=sliceminuts + " :";
+        document.getElementById("seconds").innerHTML=slicesconds;
+
+        if(raiway_time_gethour>12){
+            document.getElementById("ampm").innerHTML="PM";
+ 
+        }
+
+}
+setInterval(time,500)
+// time();
+
+    </script>
+</body>
+</html>
+
